@@ -4,6 +4,7 @@ import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.NO_CONTENT;
 import static org.springframework.http.HttpStatus.OK;
 
+import jakarta.validation.Valid;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -32,7 +33,7 @@ public class DiscountController {
 
     @PostMapping
     @ResponseStatus(CREATED)
-    public DiscountResponse create(@PathVariable UUID productId, @RequestBody DiscountRequest discountRequest) {
+    public DiscountResponse create(@PathVariable UUID productId, @RequestBody @Valid DiscountRequest discountRequest) {
         return discountService.create(productId, discountRequest);
     }
 
@@ -45,7 +46,7 @@ public class DiscountController {
 
     @PutMapping("/{id}")
     @ResponseStatus(OK)
-    public DiscountResponse update(@PathVariable UUID productId, @PathVariable Long id, @RequestBody DiscountRequest discountRequest) {
+    public DiscountResponse update(@PathVariable UUID productId, @PathVariable Long id, @RequestBody @Valid DiscountRequest discountRequest) {
         return discountService.update(productId, id, discountRequest);
     }
 
