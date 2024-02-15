@@ -1,5 +1,5 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/pricecalculator
+    url: jdbc:postgresql://${DB_HOST:localhost}:5432/pricecalculator
     password: password
     username: user
