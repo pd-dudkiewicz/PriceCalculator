@@ -1,6 +1,8 @@
 package pl.inpost.pricecalculator.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.math.BigDecimal;
@@ -11,6 +13,7 @@ import java.util.UUID;
 public class Product {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     private BigDecimal basePrice;

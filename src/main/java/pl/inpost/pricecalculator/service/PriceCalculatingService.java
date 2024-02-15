@@ -30,6 +30,7 @@ public class PriceCalculatingService {
                 .map(ProductPriceResponse::fromProduct)
                 .orElseThrow(ProductNotFoundException::new);
         }
+
         return discount.map(this::calculateDiscountedPrice)
             .map(ProductPriceResponse::new)
             .get();

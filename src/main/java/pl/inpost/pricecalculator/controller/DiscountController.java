@@ -43,7 +43,6 @@ public class DiscountController {
         return discountService.get(productId);
     }
 
-
     @PutMapping("/{id}")
     @ResponseStatus(OK)
     public DiscountResponse update(@PathVariable UUID productId, @PathVariable Long id, @RequestBody @Valid DiscountRequest discountRequest) {
