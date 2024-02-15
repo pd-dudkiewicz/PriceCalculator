@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import java.util.Objects;
 
 @Entity
 @Table(name = "discounts", schema = "pricecalculator")
@@ -47,5 +48,24 @@ public class Discount {
 
     public Integer getPercentage() {
         return percentage;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Discount discount = (Discount) o;
+        return Objects.equals(id, discount.id) && Objects.equals(product, discount.product)
+            && Objects.equals(minimumCount, discount.minimumCount) && Objects.equals(percentage,
+            discount.percentage);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, product, minimumCount, percentage);
     }
 }
