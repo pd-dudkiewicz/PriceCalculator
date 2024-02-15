@@ -14,7 +14,7 @@ import pl.inpost.pricecalculator.response.ProductPriceResponse;
 import pl.inpost.pricecalculator.service.PriceCalculatingService;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/product/{id}")
 public class ProductPriceController {
 
     private final PriceCalculatingService priceCalculatingService;
@@ -24,7 +24,7 @@ public class ProductPriceController {
         this.priceCalculatingService = priceCalculatingService;
     }
 
-    @GetMapping("/{id}/price")
+    @GetMapping("/price")
     @ResponseStatus(OK)
     public ProductPriceResponse getProductPrice(@PathVariable UUID id, @RequestParam Integer count) {
         return priceCalculatingService.calculate(id, count);

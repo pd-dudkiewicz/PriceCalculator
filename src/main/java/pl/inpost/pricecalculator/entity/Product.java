@@ -17,6 +17,14 @@ public class Product {
 
     private String name;
 
+    public Product() {}
+
+    public Product(UUID id, BigDecimal basePrice, String name) {
+        this.id = id;
+        this.basePrice = basePrice;
+        this.name = name;
+    }
+
     public UUID getId() {
         return id;
     }
